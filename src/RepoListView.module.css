@@ -1,0 +1,64 @@
+.repoListTitle
+{
+    margin-top:10px;
+    margin-bottom: 0px;
+}
+.repoList
+{
+    border-top:1px solid white;
+    border-bottom: 1px solid white;
+    margin-top:10px;
+    min-height:75%;
+    max-height:75%;
+    padding:0;
+    margin-bottom: 0px;
+    overflow-y: scroll;
+}
+.repo
+{
+    height:100%;
+}
+.repoListItem
+{
+    list-style-type: none;
+    border: 1px solid white;
+    display:flex;
+    flex-direction: row;
+    margin:10px;
+    cursor: pointer;
+}
+.repoBigText
+{
+    border-right:1px solid white;
+    min-width:70px;
+    min-height:100%;
+    font-size:.8em;
+}
+.repoMediumText
+{
+    font-size:.75em;
+    border-right:1px solid white;
+}
+.repoNameText
+{
+    border-right:none;
+}
+.addRepoForm
+{
+    justify-content: space-around;
+    display:flex;
+}
+.addRepoTitle
+{
+    margin:5px;
+}
+.refresh
+{
+    border-bottom: 1px solid white;
+    background-color: black;
+}
+.refresh:hover
+{
+    cursor: pointer;
+    background-color: gray;
+}
