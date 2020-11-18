@@ -19,10 +19,10 @@ export class RepoListView extends React.Component {
             list = JSON.parse(list);
             list.forEach(async element => {
                 let latestUpdate = await GithubClient.GetLatestRelease(element['repoOwner'], element['repoName']);
-                let hasSeen = await GithubClient.IsLatestVersion(element['repoOwner'], element['repoName'], element['lastReleaseSeen'])
+                let hasSeen = await GithubClient.IsLatestVersion(element['repoOwner'], element['repoName'], element['latestRelease'])
                 if (!hasSeen) {
-                    element['lastReleaseSeen'] = latestUpdate['tag_name'];
-                    element['lastReleaseDate'] = latestUpdate['created_at'];
+                    element['latestRelease'] = latestUpdate['tag_name'];
+                    element['latestReleaseDate'] = latestUpdate['created_at'];
                     element['hasRead'] = false;
                     localStorage.setItem("repos", JSON.stringify(list));
                 }
@@ -66,14 +66,14 @@ export class RepoListView extends React.Component {
                 <h3 className={styles.repoListTitle}>Repo List</h3>
                 <ul className={styles.repoList}>
                     {this.state !== null && this.state.repoList !== null ? this.state.repoList.map((repoObj, index) => {
-                        let date = new Date(repoObj['lastReleaseDate']);
+                        let date = new Date(repoObj['latestReleaseDate']);
                         return (
                             <li key={index} className={styles.repoListItem} onClick={() => this.onRepoClick(repoObj)}>
                                 <div className={styles.repoBigText}>
                                     {!repoObj['hasRead'] && "NEW"}
                                 </div>
                                 <div className={styles.repoBigText}>
-                                    {repoObj['lastReleaseSeen']}
+                                    {repoObj['latestRelease']}
                                 </div>
                                 <div className={styles.repoMediumText}>
                                     {date.toDateString()}

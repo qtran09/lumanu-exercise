@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow-y: hidden;
 }
 
 .App-header {
@@ -14,4 +15,5 @@
 {
   width:33.3%;
   border-right: 1px solid white;
+  height: 100vh;
 }

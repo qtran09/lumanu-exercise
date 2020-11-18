@@ -9,7 +9,7 @@ export class GithubClient
         {
             return false;
         }
-        const toAdd = {repoOwner : owner, repoName : repo, lastReleaseSeen: latestRelease["tag_name"], lastReleaseDate :latestRelease["created_at"], hasRead: true};
+        const toAdd = {repoOwner : owner, repoName : repo, latestRelease: latestRelease["tag_name"], latestReleaseDate :latestRelease["created_at"], hasRead: true};
         repoList.push(toAdd);
         localStorage.setItem("repos",JSON.stringify(repoList));
         return true;
